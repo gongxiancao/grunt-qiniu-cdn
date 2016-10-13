@@ -26,43 +26,6 @@ In your project's Gruntfile, add a section named `qiniu` to the data object pass
 grunt.initConfig({
   qiniu: {
     options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    }
-  },
-});
-```
-
-### Options
-
-#### options.accessKey
-Type: `String`
-Default value: `',  '`
-
-
-#### options.secretKey
-Type: `String`
-Default value: `'.'`
-
-#### options.bucket
-Type: `String`
-Default value: `'.'`
-
-#### options.prefix
-Type: `String`
-Default value: `'.'`
-
-
-### Usage Examples
-
-#### Custom Options
-
-```js
-grunt.initConfig({
-  qiniu: {
-    options: {
       accessKey: '',
       secretKey: '',
       bucket: '',
@@ -75,3 +38,23 @@ grunt.initConfig({
   },
 });
 ```
+
+### Options
+
+#### options.accessKey
+Type: `String`
+Default value: undefined
+
+
+#### options.secretKey
+Type: `String`
+Default value: undefined
+
+#### options.bucket
+Type: `String`
+Default value: undefined
+
+#### options.prefix
+Type: `String`
+Default value: undefined
+
