@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         var key = options.prefix + filepath;
         qiniu.upload(token, key, fullPath, function(err, ret) {
           if (err) {
-            grunt.log.error('!error "' + fullPath + '" => "' + key + '" ' + err);
+            grunt.log.error('!error "' + fullPath + '" => "' + key + '" ' + JSON.stringify(err) + '  ' + err.toString());
             return done(err);
           }
           grunt.log.success('!ok "' + fullPath + '" => "' + key + '"');
