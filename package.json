@@ -1,7 +1,7 @@
 {
   "name": "grunt-qiniu-cdn",
   "description": "grunt qiniu cdn plugin.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/gongxiancao/grunt-qiniu-cdn",
   "author": {
     "name": "GongXian",

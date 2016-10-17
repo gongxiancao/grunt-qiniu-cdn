@@ -37,12 +37,12 @@ module.exports = function(grunt) {
         var fullPath = path.join(f.cwd, filepath);
         return grunt.file.isFile(fullPath);
       });
-      async.eachLimit(srcs, 10, function (filepath, done) {
+      async.eachLimit(srcs, options.concurrency || 5, function (filepath, done) {
         var fullPath = path.join(f.cwd, filepath);
         var key = options.prefix + filepath;
         qiniu.upload(token, key, fullPath, function(err, ret) {
           if (err) {
-            grunt.log.error('!error "' + fullPath + '" => "' + key + '" ' + JSON.stringify(err) + '  ' + err.toString());
+            grunt.log.error('!error "' + fullPath + '" => "' + key + '" ' + JSON.stringify(err));
             return done(err);
           }
           grunt.log.success('!ok "' + fullPath + '" => "' + key + '"');

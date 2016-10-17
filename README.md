@@ -29,7 +29,8 @@ grunt.initConfig({
       accessKey: '',
       secretKey: '',
       bucket: '',
-      prefix: 'portal/'
+      prefix: 'portal/',
+      concurrency: 5
     },
     dist: {
       cwd: 'deployment/www',
