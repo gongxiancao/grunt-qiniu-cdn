@@ -26,8 +26,6 @@ module.exports = function(grunt) {
       return false;
     }
 
-    var token = qiniu.token();
-
     var _this = this;
 
     this.files.forEach(function(f) {
@@ -40,6 +38,10 @@ module.exports = function(grunt) {
       async.eachLimit(srcs, options.concurrency || 5, function (filepath, done) {
         var fullPath = path.join(f.cwd, filepath);
         var key = options.prefix + filepath;
+
+        var putPolicy = new qiniu.raw.rs.PutPolicy(options.bucket + ":" + key);
+        var token = putPolicy.token();
+
         qiniu.upload(token, key, fullPath, function(err, ret) {
           if (err) {
             grunt.log.error('!error "' + fullPath + '" => "' + key + '" ' + JSON.stringify(err));
